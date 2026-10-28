@@ -1,6 +1,6 @@
 context:
   name: hatch
-  version: 1.18.1
+  version: 1.18.2
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/hatch-${{ version }}.tar.gz
-  sha256: 222fff78e197cf12a39db7efe5318ca403f2614db213416fd106a6c3260ef221
+  sha256: 7f365f1a5b8f1a8162813daed9bf9fce83f15dc933fc99c6d04cbb942e64f4d0
 
 build:
   number: 0
@@ -43,15 +43,16 @@ requirements:
     - tomli-w >=1.0
     - tomlkit >=0.11.1
     - userpath >=1.7,<2.dev0
-    - python-uv >=0.5.23
     - virtualenv >=21
+    - uv >=0.5.23
+    - backports-zstd >=1.0.0
 tests:
   - python:
       imports:
         - hatch
       python_version:
         - ${{ python_min }}.*
-        - "*"
+        - '*'
   - files:
       source:
         - tests
